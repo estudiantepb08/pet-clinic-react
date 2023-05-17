@@ -1,0 +1,75 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+:focus {
+    outline: none;
+}
+
+.My-card{
+    width: 18rem;    
+}
+
+.My-card:hover{
+    color:black;
+}
+
+form.form_pet_clinic {
+    width: 62%;
+    padding: 3em 2em;
+}
+
+form.form_pet_clinic {
+    font-size: 25px;
+    font-weight: 600;
+    color: #303030;
+    margin-bottom: 30px;
+}
+
+form.form_pet_clinic {
+    display: flex;
+    flex-direction: column;
+}
+
+form.form_pet_clinic label {
+    font-weight: 600;
+    font-size: 0.8em;
+}
+
+form.form_pet_clinic label {
+    font-weight: 600;
+    font-size: 0.8em;
+}
+
+form.form_pet_clinic input {
+    width: 100%;
+    padding: 8px 0px 5px;
+    border: none;
+    border-bottom: 2px solid #D1D1D1;
+    font-family: 'Open sans';
+    color: #5A5A5A;
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+form.form_pet_clinic input[type="submit"] {
+    width: 180px;
+    background: rgba(51, 145, 157, 0.8);
+    /*#4091EC;*/
+    padding: 10px;
+    border: none;
+    border-radius: 25px;
+    align-self: flex-end;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Open sans';
+    cursor: pointer;
+}
+
+form.form_pet_clinic input[type="submit"]:hover {
+    background: rgba(51, 145, 157, 0.8);
+}
