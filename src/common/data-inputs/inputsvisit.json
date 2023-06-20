@@ -1,0 +1,66 @@
+[
+    {
+        "id":1,
+        "label":"Fecha",
+        "name":"dateVisit",
+        "type":"date",
+        "placeHolder":"Ingrese la fecha"
+    },
+    {
+        "id":2,
+        "label":"Mascota",
+        "name":"pet",
+        "type":"select",
+        "placeHolder":"Seleccione Mascota"
+    },
+    {
+        "id":3,
+        "label":"Propietario",
+        "name":"owner",
+        "type":"select",
+        "placeHolder":"Seleccione Propietario"
+    },
+    {
+        "id":4,
+        "label":"Mótivo",
+        "name":"reason",
+        "type":"input",
+        "typeInput":"text",
+        "placeHolder":"Ingrese el mótivo de la visita"
+    },
+    {
+        "id":5,
+        "label":"Primera vez",
+        "name":"isFirstVisit",
+        "type":"select",
+        "placeHolder":"¿Es primera vez?",
+        "data":[
+            "SI", "NO"
+        ]
+    },
+    {
+        "id":6,
+        "label":"Veterinario",
+        "name":"veterinary",
+        "type":"select",
+        "placeHolder":"Seleccione Veterinario"
+    },
+    {
+        "id":7,
+        "label":"Costo Visita",
+        "name":"price",
+        "type":"input",
+        "typeInput":"number",
+        "placeHolder":"Costo de la Visita"
+    },
+    {
+        "id":8,
+        "label":"Estado",
+        "name":"status",
+        "type":"select",
+        "placeHolder":"Seleccione el estado",
+        "data":[
+            "ACTIVO", "INACTIVO"
+        ]
+    }
+]
