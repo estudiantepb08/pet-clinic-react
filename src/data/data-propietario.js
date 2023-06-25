@@ -62,6 +62,29 @@ export const getDataPropietario =
 ];
 
 export const getEstructuraPropietario =
+/*
+{
+    messages: '',
+    data: [
+        {
+            id: '',
+            propietariosId: '',
+            primerNombre: '',
+            segundoNombre: '',
+            primerApellido: '',
+            segundoApellido: '',
+            contactoId: [
+                {
+                    conctatosId: '',
+                    telefono: '',
+                    direccion: '',
+                    correoElectronico: ''
+                }
+            ]
+        }
+    ]
+};*/
+
 [{
     id:0,
     primerNombre:'',
@@ -72,6 +95,8 @@ export const getEstructuraPropietario =
     direccion:'',
     correo:''
 }];
+
+
 
 export const getEstructuraFormPropietario =
 {    
