@@ -1,30 +1,28 @@
 import React, { useEffect, useState} from 'react';
-import { FormVeterinario } from '../component/FormVeterinario';
-import { DetalleVeterinario } from '../component/DetalleVeterinario';
-import { getEstructuraVeterinario } from '../data/data-veterinario';
-import { getDataVeterinarioService } from '../services/dataVeterinarioService';
+import { FormVeterinario } from '../../../component/FormVeterinario';
+import { DetalleVeterinario } from '../../../component/DetalleVeterinario';
 
-export const VeterinarioVista = () => {
-
+export const VeterinarioVista = ({data}) => {
   /** Estados iniciales de la vista principal con la data basica */
-
   const [activarForm, setActivarForm] = useState(false);
-  const [dataVeterinario, setDataVeterinario] = useState(getEstructuraVeterinario);
+  const [dataVeterinario, setDataVeterinario] = useState([]);
   const [itemsVeterinarios, setItemsVeterinarios] = useState([]);
 
   /** Efecto inicial de la carga de imagenes y data */
 
   useEffect(() => {
-    const dataVeterinario = getDataVeterinarioService();
-    setDataVeterinario(dataVeterinario);
-    setItemsVeterinarios(dataVeterinario);
+    setDataVeterinario(data);
+    setItemsVeterinarios(data);
+    console.log(dataVeterinario);
   }, []);
 
   /** useEffect refresca la tabla con el nuevo registro ingresado en por el formulario */
 
   useEffect(() => {
-    setDataVeterinario(itemsVeterinarios);
-  }, [itemsVeterinarios])
+    setDataVeterinario(data);
+    setItemsVeterinarios(data);
+    console.log(dataVeterinario,"DATA VETE");
+  }, [])
 
   const onActiveForm = () => {
     setActivarForm(!activarForm);
@@ -48,24 +46,29 @@ export const VeterinarioVista = () => {
 
   return (
     <>
+    <section>
       <div className='container'>
         <div className='card my-3'>
           <div className='card-header'>
-            Datos Propietario
+            Datos Veterinario
           </div>
           <div className='card-body'>
             <div className='row my-4'>
               <div className='col'>
-                <DetalleVeterinario veterinarioData={dataVeterinario} />
-              </div>
-              <div className='col'>
-                <button className="btn btn-secondary" onClick={onActiveForm}>{!activarForm ? 'Crear propietario' : 'Ocultar formulario'}</button>
-                {!activarForm ? '' : <FormVeterinario handler={(newVeterinario) => handlerItemsVeterinarios(newVeterinario)} />}
+              <DetalleVeterinario veterinarioData={data} />
+
               </div>
             </div>
           </div>
         </div>
       </div>
+      </section>
+      <section>
+      <div className='col'>
+                <button className="btn btn-secondary" onClick={onActiveForm}>{!activarForm ? 'Crear veterinario' : 'Ocultar formulario'}</button>
+                {!activarForm ? '' : <FormVeterinario handler={(newVeterinario) => handlerItemsVeterinarios(newVeterinario)} />}
+              </div>
+      </section>
     </>
 
   )

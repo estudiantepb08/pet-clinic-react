@@ -9,8 +9,6 @@ export const VisitData = () => {
     return (
         <>
             <VisitaVista data={data?.listData}/>
-                
-          
         </>
     )
 }

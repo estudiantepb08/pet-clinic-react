@@ -4,6 +4,7 @@ export const useFetch = (url, method = 'GET', body = null, headers = {}) => {
 
     const [state, setState] = useState({ data: null, error: null, ok: null });
     const getFetch = async () => {
+        console.log("entro el hp")
         try {
             const options = {
                 method,

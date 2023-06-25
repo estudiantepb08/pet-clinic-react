@@ -2,16 +2,17 @@ import React, { useState } from 'react';
 import { RowDetalleVeterinario } from './RowDetalleVeterinario';
 
 export const DetalleVeterinario = ({ veterinarioData }) => {
-
+    console.log(veterinarioData);
     const [busqueda, setBusqueda] = useState("");
 
     const onChangeInput = event => {
         setBusqueda(event.target.value);
     };
 
-    const veterinarios = !busqueda ? veterinarioData : veterinarioData.filter(veterinario => veterinario.primerNombre.toLowerCase().includes(busqueda.toLowerCase()));
+    const veterinarios = !busqueda ? veterinarioData : veterinarioData?.filter(veterinario => veterinario.primerNombre.toLowerCase().includes(busqueda.toLowerCase()));
 
     const title = 'Tabla Veterinario';
+    var n=0;
     return (
         <>
             <div className='container'>
@@ -39,15 +40,14 @@ export const DetalleVeterinario = ({ veterinarioData }) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {veterinarios.map(({ id, primerNombre, segundoNombre, primerAPellido, segundoApellido, especialidad }) => (<RowDetalleVeterinario
+                            {veterinarios?.map(({primerNombreVet, segundoNombreVet, primerApellidoVet, segundoApellidoVet, especialidad,id }) => (<RowDetalleVeterinario
+                                id={n=n+1}
+                                primerNombre={primerNombreVet}
+                                segundoNombre={segundoNombreVet}
+                                primerAPellido={primerApellidoVet}
+                                segundoApellido={segundoApellidoVet}
+                                especialidad={especialidad.tipoEspecialidad}                              
                                 key={id}
-                                id={id}
-                                primerNombre={primerNombre}
-                                segundoNombre={segundoNombre}
-                                primerAPellido={primerAPellido}
-                                segundoApellido={segundoApellido}
-                                especialidad={especialidad}                              
-
                             />))}
                         </tbody>
                     </table>
