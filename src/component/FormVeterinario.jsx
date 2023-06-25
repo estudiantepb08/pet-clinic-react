@@ -8,7 +8,7 @@ export const FormVeterinario = ({handler}) => {
 
   /** desestructuramos el objecto json para trabajar con cada uno de sus atributos */
 
-  const { primerNombre, segundoNombre, primerAPellido, segundoApellido, especialidad } = formVeterinario;
+  const { primerNombre, segundoNombre, primerApellido, segundoApellido, especialidad } = formVeterinario;
 
   /** utilizamos el evento onchange para obtener los valores de los input, con la referencia del nombre del campo */
 
@@ -46,7 +46,7 @@ export const FormVeterinario = ({handler}) => {
           </label>
 
           <label >Primer Apellido:
-            <input type='text' name='primerAPellido' value={primerAPellido} placeholder='Primer Apellido' onChange={onInputOnchange} />
+            <input type='text' name='primerApellido' value={primerApellido} placeholder='Primer Apellido' onChange={onInputOnchange} />
           </label>
 
           <label >Segundo Apellido:

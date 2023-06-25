@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const RowDetallePropietario = ({ id, primerNombre, segundoNombre, primerAPellido,
+export const RowDetallePropietario = ({ id, primerNombre, segundoNombre, primerApellido,
     segundoApellido, telefono, direccion, correo }) => {
 
     /*<td><button className='btn btn-danger' onClick={()=>handlerDeleteItem(id)}>eliminar</button></td>*/
@@ -10,7 +10,7 @@ export const RowDetallePropietario = ({ id, primerNombre, segundoNombre, primerA
                 <td>{id}</td>
                 <td>{primerNombre}</td>
                 <td>{segundoNombre}</td>
-                <td>{primerAPellido}</td>
+                <td>{primerApellido}</td>
                 <td>{segundoApellido}</td>
                 <td>{telefono}</td>
                 <td>{direccion}</td>

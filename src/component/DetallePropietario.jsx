@@ -42,12 +42,12 @@ export const DetallePropietario = ({ dataPropietarios }) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {propietarios.map(({ id, primerNombre, segundoNombre, primerAPellido, segundoApellido, telefono, direccion, correo }) => (<RowDetallePropietario
+                            {propietarios?.map(({ id, primerNombre, segundoNombre, primerApellido, segundoApellido, telefono, direccion, correo }) => (<RowDetallePropietario
                                 key={id}
                                 id={id}
                                 primerNombre={primerNombre}
                                 segundoNombre={segundoNombre}
-                                primerAPellido={primerAPellido}
+                                primerApellido={primerApellido}
                                 segundoApellido={segundoApellido}
                                 telefono={telefono}
                                 direccion={direccion}
