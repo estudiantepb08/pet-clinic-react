@@ -1,8 +1,8 @@
 import React from 'react'
 import { FormPropietario } from '../component/FormPropietario';
 import { DetallePropietario } from '../component/DetallePropietario';
-import { getDataPropietarioService, savePropietario } from '../services/dataPropietarioService';
-import { getEstructuraPropietario } from '../data/data-propietario';
+import { getDataPropietarioService, saveOwner, useUpdatePropietario, deleteOwner } from '../services/dataPropietarioService';
+import { getEstructuraPropietario, getEstructuraRequestApi } from '../data/data-propietario';
 import { useEffect, useState } from 'react';
 import { useFetch } from '../common/useFetch';
 
@@ -12,10 +12,9 @@ export const PropietarioVista = () => {
 
     const [activarForm, setActivarForm] = useState(false);
     const [dataPropietario, setDataPropietario] = useState(getEstructuraPropietario);
-    const [itemsPropietarios, setItemsPropietarios] = useState([]);
-
-    const { data, error, ok} = useFetch("http://localhost:8762/ms-buscador/v1/pet-clinic/propietarios");    
-
+    const [itemsPropietarios, setItemsPropietarios] = useState([]);    
+    const { data, error, ok} = useFetch("https://pet-clinic-gateway.up.railway.app/ms-buscador/v1/pet-clinic/propietarios");     
+    
     /** Efecto inicial de la carga de imagenes y data */
 
     useEffect(() => {
@@ -35,13 +34,12 @@ export const PropietarioVista = () => {
     const onActiveForm = () => {
         setActivarForm(!activarForm);
     };
-
+    
     /** Handler encargado de recibir la data del formulario y clonar la lista anterior y agregarle los nuevos registros */
 
     const handlerItemsPropietarios = async({ primerNombre, segundoNombre, primerApellido, segundoApellido, telefono, direccion, correo }) => {
 
-
-        const datosPropietarios = {
+        const responseOwner = await saveOwner({
 
             primerNombre: primerNombre,
             segundoNombre: segundoNombre,
@@ -53,15 +51,13 @@ export const PropietarioVista = () => {
                 direccion: direccion,
                 correoElectronico: correo
             }
-        }
+        });    
 
-       const mensaje = await savePropietario (datosPropietarios);
-
-       if(mensaje.messages === 'Ok'){
+       if(responseOwner.messages === 'Ok'){
 
         setItemsPropietarios([...itemsPropietarios, {
 
-            id: mensaje.id,
+            id: responseOwner.id,
             primerNombre: primerNombre,
             segundoNombre: segundoNombre,
             primerApellido: primerApellido,
@@ -71,13 +67,18 @@ export const PropietarioVista = () => {
             correo: correo
         }]);
 
-       }/*else{
-        setItemsPropietarios(itemsPropietarios);
-       }*/
+       }
+    };
 
-        //console.log(itemsPropietarios);
+    const handlerDeleteOwnerItem = async(idOwner)=>{
 
-    }
+        const mensaje = await deleteOwner(idOwner);       
+        console.log(mensaje.messages);
+
+        if(mensaje.messages == 'Ok'){
+            setItemsPropietarios(itemsPropietarios.filter(item => item.id !== idOwner));
+        }       
+    };
 
     return (
         <>
@@ -93,11 +94,9 @@ export const PropietarioVista = () => {
 
                         <div className='row my-4'>
                             <div className='col'>
-                                <DetallePropietario dataPropietarios={dataPropietario} />
-                            </div>
-                            <div className='col'> </div>
+                                <DetallePropietario dataPropietarios={dataPropietario} handlerDeleteOwnerItem = { handlerDeleteOwnerItem } />
+                            </div>                            
                         </div>
-
                     </div>
                 </div>
             </div>

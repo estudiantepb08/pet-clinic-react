@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { RowDetallePropietario } from './RowDetallePropietario';
 
-export const DetallePropietario = ({ dataPropietarios }) => {
+export const DetallePropietario = ({ dataPropietarios, handlerDeleteOwnerItem }) => {
 
     const [busqueda, setBusqueda] = useState("");
 
@@ -39,6 +39,7 @@ export const DetallePropietario = ({ dataPropietarios }) => {
                                 <th>Telefono</th>
                                 <th>Direccion</th>
                                 <th>Correo</th>
+                                <th>Operacion</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,6 +53,7 @@ export const DetallePropietario = ({ dataPropietarios }) => {
                                 telefono={telefono}
                                 direccion={direccion}
                                 correo={correo}
+                                handlerDeleteOwnerItem ={id => handlerDeleteOwnerItem(id)}
 
                             />))}
                         </tbody>

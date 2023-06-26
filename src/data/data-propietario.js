@@ -108,3 +108,18 @@ export const getEstructuraFormPropietario =
     direccion:'',
     correo:''
 };
+
+export const getEstructuraRequestApi = 
+{
+
+    primerNombre: '',
+    segundoNombre: '',
+    primerApellido: '',
+    segundoApellido: '',
+    contacto:
+    {
+        telefono: '',
+        direccion: '',
+        correoElectronico: ''
+    }
+};

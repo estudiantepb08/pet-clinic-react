@@ -50,11 +50,15 @@ export const estructuraList =[
     {
         id:0,
         nombreMascota:'',
-        fechaNacimiento:''
+        fechaNacimiento:'',
+        propietario:'',
+        tipoMascota:''
     }
 ];
 
 export const estructuraFormMascota ={
     nombreMascota:'',
-    fechaNacimiento:''
+    fechaNacimiento:'',
+    propietario:'',
+    tipoMascota:''
 }
