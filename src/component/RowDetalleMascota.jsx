@@ -10,7 +10,7 @@ export const RowDetalleMascota = ({ id, nombreMascota, fechaNacimiento, propieta
                 <td>{fechaNacimiento}</td>  
                 <td>{propietario}</td>
                 <td>{tipoMascota}</td>
-                <td><button onClick={() => handlerDeletePetItem(id)}>Eliminar</button></td>
+                <td><button className='btn btn-danger' onClick={() => handlerDeletePetItem(id)}>Eliminar</button></td>
             </tr>
         </>
     )
