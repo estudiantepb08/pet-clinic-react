@@ -3,7 +3,7 @@ export const getDataVeterinario =
     id:1,
     primerNombre:'Pablo',
     segundoNombre:'Emilio',
-    primerAPellido:'Toro',
+    primerApellido:'Toro',
     segundoApellido:'Bermejo',
     especialidad:'radiologo'
 },
@@ -11,7 +11,7 @@ export const getDataVeterinario =
     id:2,
     primerNombre:'Pedro',
     segundoNombre:'Emilio',
-    primerAPellido:'Toro',
+    primerApellido:'Toro',
     segundoApellido:'Bermejo',
     especialidad:'veterinario'
 },
@@ -19,7 +19,7 @@ export const getDataVeterinario =
     id:3,
     primerNombre:'Paquita',
     segundoNombre:'Pacas',
-    primerAPellido:'Tovar',
+    primerApellido:'Tovar',
     segundoApellido:'Banderas',
     especialidad:'odontologo'
 },
@@ -27,7 +27,7 @@ export const getDataVeterinario =
     id:4,
     primerNombre:'Gina',
     segundoNombre:'Maria',
-    primerAPellido:'Alvarez',
+    primerApellido:'Alvarez',
     segundoApellido:'Benavidez',
     especialidad:'cardiologo'
 },
@@ -35,7 +35,7 @@ export const getDataVeterinario =
     id:5,
     primerNombre:'Vilma',
     segundoNombre:'Carolina',
-    primerAPellido:'Tabares',
+    primerApellido:'Tabares',
     segundoApellido:'Bermudez',
     especialidad:'radiologo'
 },
@@ -43,7 +43,7 @@ export const getDataVeterinario =
     id:6,
     primerNombre:'Paola',
     segundoNombre:'Andrea',
-    primerAPellido:'Vejarano',
+    primerApellido:'Vejarano',
     segundoApellido:'Bermudez',
     especialidad:'dermatologo'
 }
@@ -54,7 +54,7 @@ export const getEstructuraVeterinario =
     id:0,
     primerNombre:'',
     segundoNombre:'',
-    primerAPellido:'',
+    primerApellido:'',
     segundoApellido:'',
     especialidad:''
 }];
@@ -63,7 +63,7 @@ export const getEstructuraFormVeterinario =
 {    
     primerNombre:'',
     segundoNombre:'',
-    primerAPellido:'',
+    primerApellido:'',
     segundoApellido:'',
     especialidad:''
 };

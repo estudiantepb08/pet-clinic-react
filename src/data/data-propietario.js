@@ -3,7 +3,7 @@ export const getDataPropietario =
     id:1,
     primerNombre:'Pablo',
     segundoNombre:'Emilio',
-    primerAPellido:'Toro',
+    primerApellido:'Toro',
     segundoApellido:'Bermejo',
     telefono:'6018881047',
     direccion:'calle: 10 # 10-1',
@@ -13,7 +13,7 @@ export const getDataPropietario =
     id:2,
     primerNombre:'Pedro',
     segundoNombre:'Emilio',
-    primerAPellido:'Toro',
+    primerApellido:'Toro',
     segundoApellido:'Bermejo',
     telefono:'6018881047',
     direccion:'calle: 10 # 10-1',
@@ -23,7 +23,7 @@ export const getDataPropietario =
     id:3,
     primerNombre:'Paquita',
     segundoNombre:'Pacas',
-    primerAPellido:'Tovar',
+    primerApellido:'Tovar',
     segundoApellido:'Banderas',
     telefono:'6018881047',
     direccion:'calle: 10 # 10-1',
@@ -33,7 +33,7 @@ export const getDataPropietario =
     id:4,
     primerNombre:'Gina',
     segundoNombre:'Maria',
-    primerAPellido:'Alvarez',
+    primerApellido:'Alvarez',
     segundoApellido:'Benavidez',
     telefono:'6018881047',
     direccion:'calle: 10 # 10-1',
@@ -43,7 +43,7 @@ export const getDataPropietario =
     id:5,
     primerNombre:'Vilma',
     segundoNombre:'Carolina',
-    primerAPellido:'Tabares',
+    primerApellido:'Tabares',
     segundoApellido:'Bermudez',
     telefono:'6018881047',
     direccion:'calle: 10 # 10-1',
@@ -53,7 +53,7 @@ export const getDataPropietario =
     id:6,
     primerNombre:'Paola',
     segundoNombre:'Andrea',
-    primerAPellido:'Vejarano',
+    primerApellido:'Vejarano',
     segundoApellido:'Bermudez',
     telefono:'6018881047',
     direccion:'calle: 10 # 10-1',
@@ -62,24 +62,64 @@ export const getDataPropietario =
 ];
 
 export const getEstructuraPropietario =
+/*
+{
+    messages: '',
+    data: [
+        {
+            id: '',
+            propietariosId: '',
+            primerNombre: '',
+            segundoNombre: '',
+            primerApellido: '',
+            segundoApellido: '',
+            contactoId: [
+                {
+                    conctatosId: '',
+                    telefono: '',
+                    direccion: '',
+                    correoElectronico: ''
+                }
+            ]
+        }
+    ]
+};*/
+
 [{
     id:0,
     primerNombre:'',
     segundoNombre:'',
-    primerAPellido:'',
+    primerApellido:'',
     segundoApellido:'',
     telefono:'',
     direccion:'',
     correo:''
 }];
 
+
+
 export const getEstructuraFormPropietario =
 {    
     primerNombre:'',
     segundoNombre:'',
-    primerAPellido:'',
+    primerApellido:'',
     segundoApellido:'',
     telefono:'',
     direccion:'',
     correo:''
+};
+
+export const getEstructuraRequestApi = 
+{
+
+    primerNombre: '',
+    segundoNombre: '',
+    primerApellido: '',
+    segundoApellido: '',
+    contacto:
+    {
+        telefono: '',
+        direccion: '',
+        correoElectronico: ''
+    }
 };

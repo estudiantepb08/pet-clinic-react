@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { estructuraFormMascota } from '../data/data-mascota';
 
-export const FormMascota = ({handler, dataTipoMascota}) => {
+export const FormMascota = ({handler, dataTipoMascota, listPropietarios}) => {
 
   const[formularioEstructura, setFormularioEstructura] = useState(estructuraFormMascota);
-  const{nombreMascota, fechaNacimiento, tipoMascota} = formularioEstructura;
+  const{nombreMascota, fechaNacimiento, propietario,tipoMascota} = formularioEstructura;
 
   const onChangeInput = ({target:{name, value}})=>{
     setFormularioEstructura({...formularioEstructura, 
@@ -25,7 +25,7 @@ export const FormMascota = ({handler, dataTipoMascota}) => {
           <form className='w-70 form_pet_clinic' onSubmit={onFormSubmitMascota}>
           
           <label >Tipo Mascota:
-              <select value={tipoMascota} onChange={onChangeInput} multiple={false}>
+              <select value={tipoMascota} onChange={onChangeInput} name='tipoMascota' multiple={false}>
                 <option value={'default'}>Seleccione</option>
                 {dataTipoMascota.map(({id, tipoMascota}) => <option key={id} value={id}>{tipoMascota}</option>)}
               </select>
@@ -37,9 +37,15 @@ export const FormMascota = ({handler, dataTipoMascota}) => {
 
             <label >Fecha Nacimiento:
               <input type='text' name='fechaNacimiento' value={fechaNacimiento} placeholder='Fecha Nacimiento' onChange={onChangeInput}/>
-            </label>          
+            </label>
+            <label >Propietarios:
+              <select value={propietario} onChange={onChangeInput} name='propietario' multiple={false}>
+                <option value={'default'}>Seleccione</option>
+                {listPropietarios.map(({id, propietario}) => <option key={id} value={id}>{propietario}</option>)}
+              </select>
+            </label>     
 
-            <button type="submit" className="btn btn-primary">Create</button>
+            <button type="submit" className="btn btn-primary my-2">Create</button>
           </form>
         </div>
       </div>

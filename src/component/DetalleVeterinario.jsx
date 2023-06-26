@@ -39,12 +39,12 @@ export const DetalleVeterinario = ({ veterinarioData }) => {
                             </tr>
                         </thead>
                         <tbody>
-                            {veterinarios.map(({ id, primerNombre, segundoNombre, primerAPellido, segundoApellido, especialidad }) => (<RowDetalleVeterinario
+                            {veterinarios.map(({ id, primerNombre, segundoNombre, primerApellido, segundoApellido, especialidad }) => (<RowDetalleVeterinario
                                 key={id}
                                 id={id}
                                 primerNombre={primerNombre}
                                 segundoNombre={segundoNombre}
-                                primerAPellido={primerAPellido}
+                                primerApellido={primerApellido}
                                 segundoApellido={segundoApellido}
                                 especialidad={especialidad}                              
 

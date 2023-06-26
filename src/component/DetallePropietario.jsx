@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { RowDetallePropietario } from './RowDetallePropietario';
 
-export const DetallePropietario = ({ dataPropietarios }) => {
+export const DetallePropietario = ({ dataPropietarios, handlerDeleteOwnerItem }) => {
 
     const [busqueda, setBusqueda] = useState("");
 
@@ -39,19 +39,21 @@ export const DetallePropietario = ({ dataPropietarios }) => {
                                 <th>Telefono</th>
                                 <th>Direccion</th>
                                 <th>Correo</th>
+                                <th>Operacion</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {propietarios.map(({ id, primerNombre, segundoNombre, primerAPellido, segundoApellido, telefono, direccion, correo }) => (<RowDetallePropietario
+                            {propietarios?.map(({ id, primerNombre, segundoNombre, primerApellido, segundoApellido, telefono, direccion, correo }) => (<RowDetallePropietario
                                 key={id}
                                 id={id}
                                 primerNombre={primerNombre}
                                 segundoNombre={segundoNombre}
-                                primerAPellido={primerAPellido}
+                                primerApellido={primerApellido}
                                 segundoApellido={segundoApellido}
                                 telefono={telefono}
                                 direccion={direccion}
                                 correo={correo}
+                                handlerDeleteOwnerItem ={id => handlerDeleteOwnerItem(id)}
 
                             />))}
                         </tbody>

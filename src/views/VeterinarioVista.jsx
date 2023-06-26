@@ -32,14 +32,14 @@ export const VeterinarioVista = () => {
 
   /** Handler encargado de recibir la data del formulario y clonar la lista anterior y agregarle los nuevos registros */
 
-  const handlerItemsVeterinarios = ({ primerNombre, segundoNombre, primerAPellido, segundoApellido, especialidad }) => {
+  const handlerItemsVeterinarios = ({ primerNombre, segundoNombre, primerApellido, segundoApellido, especialidad }) => {
 
     setItemsVeterinarios([...itemsVeterinarios, {
 
       id: itemsVeterinarios.length + 1,
       primerNombre: primerNombre,
       segundoNombre: segundoNombre,
-      primerAPellido: primerAPellido,
+      primerApellido: primerApellido,
       segundoApellido: segundoApellido,
       especialidad: especialidad
     }]);
