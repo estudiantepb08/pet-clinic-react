@@ -8,10 +8,11 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { getImagenesMascotas } from './services/imagenesServices';
 import { PropietarioVista } from './views/PropietarioVista';
 import { VisitData } from '././views/visitas/statefull/VisitaDataComponent';
-import { VeterinarioVista } from './views/VeterinarioVista';
 import { MascotaVista } from './views/MascotaVista';
 import { imagenesMascotasEstructura } from './data/imagenes-mascotas';
 import { useEffect, useState } from 'react';
+import { VeterinarioData } from './views/veterinarios/statefull/VeterinarioDataComponent';
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
       <Route exact path='/' element={<Home dataImagenes={ dataImagenes }/>}/>
       <Route exact path='/propietario' element={<PropietarioVista/>}/>
       <Route exact path='/visita' element={<VisitData/>}/>
-      <Route exact path='/veterinario' element={<VeterinarioVista/>}/>
+      <Route exact path='/veterinario' element={<VeterinarioData/>}/>
       <Route exact path='/mascota' element={<MascotaVista/>}/>
       <Route exact path='/' element={<Navigate to={'/'}/>}/>
     </Routes>
