@@ -121,10 +121,10 @@ export const savePet = async(dataPet) =>{
         nombreMascota,
         fechaNacimiento,
         tipoMascota:{
-            id: propietario
+            id: tipoMascota
             },
         propietario:{
-            id: tipoMascota
+            id: propietario
         }
     }
 
