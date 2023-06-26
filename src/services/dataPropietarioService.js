@@ -58,7 +58,7 @@ export const saveOwner = async(itemsPropietarios) => {
 
     /** Funcion asyncrona para consumir el api rest de guardar */
        
-        const url = 'https://pet-clinic-gateway.up.railway.app/ms-buscador/v1/pet-clinic/propietarios';
+        const url = 'http://localhost:8762/ms-buscador/v1/pet-clinic/propietarios';
         const response = await fetch(url, peticion);
         const dataserv = await response.json();
 
@@ -70,7 +70,7 @@ export const saveOwner = async(itemsPropietarios) => {
 
 export const updatePropietario = async(formPropietario) => {
 
-    const url = `https://pet-clinic-gateway.up.railway.app/ms-buscador/v1/pet-clinic/propietarios/${peticion.body.datosPropietarios.id}`;    
+    const url = `http://localhost:8762/ms-buscador/v1/pet-clinic/propietarios/${peticion.body.datosPropietarios.id}`;    
 
     const { id, primerNombre, segundoNombre, primerApellido, segundoApellido, } = formPropietario;
     const { telefono, direccion, correoElectronico } = formPropietario.contacto;
@@ -115,7 +115,7 @@ export const deleteOwner = async(idOwner) => {
         }
     };
 
-        const url = `https://pet-clinic-gateway.up.railway.app/ms-buscador/v1/pet-clinic/propietarios/${idOwner}`;
+        const url = `http://localhost:8762/ms-buscador/v1/pet-clinic/propietarios/${idOwner}`;
         const deleteResponse = await fetch(url, peticion);
         const data = await deleteResponse.json();    
     

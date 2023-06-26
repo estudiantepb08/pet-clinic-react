@@ -12,9 +12,9 @@ export const MascotaVista = () => {
   const[tipoMascotas, setTipoMascotas] = useState([]);
   const[propietarios, setPropietarios] = useState([]);
 
-  const {mascotas} = useMascotas("https://pet-clinic-gateway.up.railway.app/ms-buscador/v1/pet-clinic-mascota/mascotas");
-  const {typePet} = useTipoMascota('https://pet-clinic-gateway.up.railway.app/ms-buscador/v1/pet-clinic-mascota/tipoMascotas');
-  const {owner} = useOwners('https://pet-clinic-gateway.up.railway.app/ms-buscador/v1/pet-clinic/propietarios');
+  const {mascotas} = useMascotas("http://localhost:8762/ms-buscador/v1/pet-clinic-mascota/mascotas");
+  const {typePet} = useTipoMascota('http://localhost:8762/ms-buscador/v1/pet-clinic-mascota/tipoMascotas');
+  const {owner} = useOwners('http://localhost:8762/ms-buscador/v1/pet-clinic/propietarios');
 
   const onActiveForm = ()=>{
     setActivarForm(!activarForm);

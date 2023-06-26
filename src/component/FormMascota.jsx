@@ -25,7 +25,7 @@ export const FormMascota = ({handler, dataTipoMascota, listPropietarios}) => {
           <form className='w-70 form_pet_clinic' onSubmit={onFormSubmitMascota}>
           
           <label >Tipo Mascota:
-              <select value={tipoMascota} onChange={onChangeInput} multiple={false}>
+              <select value={tipoMascota} onChange={onChangeInput} name='tipoMascota' multiple={false}>
                 <option value={'default'}>Seleccione</option>
                 {dataTipoMascota.map(({id, tipoMascota}) => <option key={id} value={id}>{tipoMascota}</option>)}
               </select>
@@ -39,7 +39,7 @@ export const FormMascota = ({handler, dataTipoMascota, listPropietarios}) => {
               <input type='text' name='fechaNacimiento' value={fechaNacimiento} placeholder='Fecha Nacimiento' onChange={onChangeInput}/>
             </label>
             <label >Propietarios:
-              <select value={propietario} onChange={onChangeInput} multiple={false}>
+              <select value={propietario} onChange={onChangeInput} name='propietario' multiple={false}>
                 <option value={'default'}>Seleccione</option>
                 {listPropietarios.map(({id, propietario}) => <option key={id} value={id}>{propietario}</option>)}
               </select>

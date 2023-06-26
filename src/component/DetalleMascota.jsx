@@ -39,7 +39,7 @@ export const DetalleMascota = ({ mascotaData, handlerDeletePetItem }) => {
                             </tr>
                         </thead>
                         <tbody>
-                        { mascotas.map(({ id, nombreMascota, fechaNacimiento, propietario, tipoMascota }) => (<RowDetalleMascota
+                        { mascotas?.map(({ id, nombreMascota, fechaNacimiento, propietario, tipoMascota }) => (<RowDetalleMascota
                                 key={id}
                                 id={id}
                                 nombreMascota={nombreMascota}

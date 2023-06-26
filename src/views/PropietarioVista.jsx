@@ -13,7 +13,7 @@ export const PropietarioVista = () => {
     const [activarForm, setActivarForm] = useState(false);
     const [dataPropietario, setDataPropietario] = useState(getEstructuraPropietario);
     const [itemsPropietarios, setItemsPropietarios] = useState([]);    
-    const { data, error, ok} = useFetch("https://pet-clinic-gateway.up.railway.app/ms-buscador/v1/pet-clinic/propietarios");     
+    const { data, error, ok} = useFetch("http://localhost:8762/ms-buscador/v1/pet-clinic/propietarios");     
     
     /** Efecto inicial de la carga de imagenes y data */
 

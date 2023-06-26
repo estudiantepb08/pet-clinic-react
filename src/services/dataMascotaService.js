@@ -16,7 +16,7 @@ export const useMascotas = (url) => {
     const getMascotas = async () => {
         const responseTipoMascota = await fetch(url, peticion);
         const { data } = await responseTipoMascota.json();
-        setMascotas(data.map(item =>({
+        setMascotas(data?.map(item =>({
 
             id: item.id,
             nombreMascota: item.nombreMascota,
@@ -57,7 +57,7 @@ export const useTipoMascota = (url) => {
 
     const { data } = await responseTipoMascota.json();
     
-    setTypePet(data.map(item =>({
+    setTypePet(data?.map(item =>({
         id: item.id,
         tipoMascota: item.tipoMascota
     })))
@@ -93,7 +93,7 @@ export const useOwners = (url) => {
 
     const { data } = await responseOwner.json();
     
-    setOwner(data.map(item =>({
+    setOwner(data?.map(item =>({
         id: item.id,
         propietario: item.primerNombre +' '+ item.primerApellido
     })))
@@ -121,10 +121,10 @@ export const savePet = async(dataPet) =>{
         nombreMascota,
         fechaNacimiento,
         tipoMascota:{
-            tipoMascotasId: propietario
+            id: propietario
             },
         propietario:{
-            propietariosId: tipoMascota
+            id: tipoMascota
         }
     }
 
@@ -136,7 +136,7 @@ export const savePet = async(dataPet) =>{
         body: JSON.stringify(requestBodyPet)
     }
     
-        const url = 'https://pet-clinic-gateway.up.railway.app/ms-buscador/v1/pet-clinic-mascota/mascotas';
+        const url = 'http://localhost:8762/ms-buscador/v1/pet-clinic-mascota/mascotas';
         const responseService = await fetch(url, peticion);
         const data  = await responseService.json();
     return {
@@ -154,7 +154,7 @@ export const deletePet = async (idPet) => {
         }
     };
 
-    const url = `https://pet-clinic-gateway.up.railway.app/ms-buscador/v1/pet-clinic-mascota/mascotas/${idPet}`;
+    const url = `http://localhost:8762/ms-buscador/v1/pet-clinic-mascota/mascotas/${idPet}`;
     const deleteResponse = await fetch(url, peticion);
     const data = await deleteResponse.json();
 
