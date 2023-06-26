@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { estructuraFormMascota } from '../data/data-mascota';
+import { Form } from 'react-bootstrap';
 
 export const FormMascota = ({handler, dataTipoMascota, listPropietarios}) => {
 
@@ -7,6 +8,7 @@ export const FormMascota = ({handler, dataTipoMascota, listPropietarios}) => {
   const{nombreMascota, fechaNacimiento, propietario,tipoMascota} = formularioEstructura;
 
   const onChangeInput = ({target:{name, value}})=>{
+    console.log({value,name})
     setFormularioEstructura({...formularioEstructura, 
       [name]: value});
   };
@@ -36,7 +38,15 @@ export const FormMascota = ({handler, dataTipoMascota, listPropietarios}) => {
             </label>
 
             <label >Fecha Nacimiento:
-              <input type='text' name='fechaNacimiento' value={fechaNacimiento} placeholder='Fecha Nacimiento' onChange={onChangeInput}/>
+            <Form.Group>
+                                              <Form.Label>Mascota</Form.Label>
+                                              <Form.Control
+                                                type="date"
+                                                name="fechaNacimiento"
+                                                value={fechaNacimiento}
+                                                onChange={onChangeInput}
+                                              />
+                                            </Form.Group>
             </label>
             <label >Propietarios:
               <select value={propietario} onChange={onChangeInput} name='propietario' multiple={false}>
