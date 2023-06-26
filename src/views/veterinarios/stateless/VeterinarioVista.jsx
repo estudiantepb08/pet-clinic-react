@@ -1,37 +1,35 @@
 import React, { useEffect, useState} from 'react';
-import { FormVeterinario } from '../../../component/FormVeterinario';
+import { FormVeterinario2 } from '../../../component/FormVeterinario2';
 import { DetalleVeterinario } from '../../../component/DetalleVeterinario';
 
 export const VeterinarioVista = ({data}) => {
   /** Estados iniciales de la vista principal con la data basica */
   const [activarForm, setActivarForm] = useState(false);
-  const [dataVeterinario, setDataVeterinario] = useState([]);
+  const [dataVeterinario, setVeterinarioData] = useState([]);
   const [itemsVeterinarios, setItemsVeterinarios] = useState([]);
+ const [valuesForm, setValuesForm] = useState();
 
-  /** Efecto inicial de la carga de imagenes y data */
 
-  useEffect(() => {
-    setDataVeterinario(data);
-    setItemsVeterinarios(data);
-    console.log(dataVeterinario);
-  }, []);
+
 
   /** useEffect refresca la tabla con el nuevo registro ingresado en por el formulario */
 
   useEffect(() => {
-    setDataVeterinario(data);
+    setVeterinarioData(data);
     setItemsVeterinarios(data);
-    console.log(dataVeterinario,"DATA VETE");
-  }, [])
+  }, [data])
 
-  const onActiveForm = () => {
+  const onActiveForm = (action ="") => {
+    if(action === "save"){setValuesForm(undefined)}
     setActivarForm(!activarForm);
   };
 
+
   /** Handler encargado de recibir la data del formulario y clonar la lista anterior y agregarle los nuevos registros */
 
-  const handlerItemsVeterinarios = ({ primerNombre, segundoNombre, primerAPellido, segundoApellido, especialidad }) => {
-
+  const handlerItemsVeterinarios = ({ primerNombre, segundoNombre, primerAPellido, segundoApellido, especialidad ,setItemsVeterinarios}) => {
+    console.log("SE LLENO ESTE HP");
+    
     setItemsVeterinarios([...itemsVeterinarios, {
 
       id: itemsVeterinarios.length + 1,
@@ -41,7 +39,6 @@ export const VeterinarioVista = ({data}) => {
       segundoApellido: segundoApellido,
       especialidad: especialidad
     }]);
-    //console.log(itemsPropietarios);
   }
 
   return (
@@ -55,7 +52,7 @@ export const VeterinarioVista = ({data}) => {
           <div className='card-body'>
             <div className='row my-4'>
               <div className='col'>
-              <DetalleVeterinario veterinarioData={data} />
+              <DetalleVeterinario veterinarioData={data} activeForm={onActiveForm} stateForm={activarForm} addValuesFormState={setValuesForm} setVeterinarioData={setVeterinarioData} setItemsVeterinarios={setItemsVeterinarios} />
 
               </div>
             </div>
@@ -65,8 +62,8 @@ export const VeterinarioVista = ({data}) => {
       </section>
       <section>
       <div className='col'>
-                <button className="btn btn-secondary" onClick={onActiveForm}>{!activarForm ? 'Crear veterinario' : 'Ocultar formulario'}</button>
-                {!activarForm ? '' : <FormVeterinario handler={(newVeterinario) => handlerItemsVeterinarios(newVeterinario)} />}
+                <button className="btn btn-secondary"  onClick={() => onActiveForm("save")}>{!activarForm ? 'Crear veterinario' : 'Ocultar formulario'}</button>
+                {!activarForm ? '' : <FormVeterinario2 handler={(newVeterinario) => handlerItemsVeterinarios(newVeterinario)} valuesVeterinaryEdit={valuesForm} activeForm={onActiveForm} stateForm={activarForm} setItemsVeterinarios={setItemsVeterinarios}/>}
               </div>
       </section>
     </>

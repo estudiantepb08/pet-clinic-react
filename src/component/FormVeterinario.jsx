@@ -24,7 +24,6 @@ export const FormVeterinario = ({handler}) => {
   const onSubmitFromVeterinario = (event) => {
 
     event.preventDefault();
-    /** llenamos el hadler con los valores de los input para mostrarlos en la lista */
     handler(formVeterinario);
 
     /** Limpiamos los valores de los input */
@@ -33,28 +32,28 @@ export const FormVeterinario = ({handler}) => {
   }
 
   return (
-    <>      
+    <>
       <div className="container">
         <form className='form_pet_clinic' onSubmit={onSubmitFromVeterinario}>
-
-          <label >Primer Nombre:
-            <input type='text' name='primerNombre' value={primerNombre} placeholder='Primer Nombre' onChange={onInputOnchange} />
-          </label>
+      
+        <label >Primer Nombre:
+          <input type='text' name='primerNombreVet' value={primerNombre} placeholder='Primer Nombre' onChange={onInputOnchange} />
+        </label>
 
           <label >Segundo Nombre:
-            <input type='text' name='segundoNombre' value={segundoNombre} placeholder='Segundo Nombre' onChange={onInputOnchange} />
+            <input type='text' name='segundoNombreVet' value={segundoNombre} placeholder='Segundo Nombre' onChange={onInputOnchange} />
           </label>
 
           <label >Primer Apellido:
-            <input type='text' name='primerAPellido' value={primerAPellido} placeholder='Primer Apellido' onChange={onInputOnchange} />
+            <input type='text' name='primerApellidoVet' value={primerAPellido} placeholder='Primer Apellido' onChange={onInputOnchange} />
           </label>
 
           <label >Segundo Apellido:
-            <input type='text' name='segundoApellido' value={segundoApellido} placeholder='Segundo Apellido' onChange={onInputOnchange} />
+            <input type='text' name='segundoApellidoVet' value={segundoApellido} placeholder='Segundo Apellido' onChange={onInputOnchange} />
           </label>
 
           <label >Especialidad:
-            <input type='text' name='especialidad' value={especialidad} placeholder='Especialidad' onChange={onInputOnchange} />
+            <input type='text' name='tipoEspecialidad' value={especialidad} placeholder='Especialidad' onChange={onInputOnchange} />
           </label>
 
           <button type="submit" className="btn btn-primary">Create</button>

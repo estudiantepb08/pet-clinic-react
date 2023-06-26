@@ -7,7 +7,7 @@ import { Alert } from 'react-bootstrap';
 export const VisitData = () => {
     const {data, error, ok} = useFetch(process.env.REACT_APP_MS_OPERADOR);
     const [spinner,setSpinner] = useState();
-     const {data:typePets} = useFetch(`${process.env.REACT_APP_MS_BUSCADOR}/tipoMascotas`);
+    const {data:typePets} = useFetch(`${process.env.REACT_APP_MS_BUSCADOR}/tipoMascotas`);
     const [filter,setFilter] = useState();
     const [errors,setErrors] = useState();
     const [visits,setVisits] = useState([]);
@@ -22,9 +22,9 @@ export const VisitData = () => {
             dataServices = {};
         }else {
             dataServices = {
-               paramMSBuscador,
-               status:paramMsOperador === 'ACTIVO' ? 'ACTIVE' : 'INACTIVE'
-           }
+            paramMSBuscador,
+            status:paramMsOperador === 'ACTIVO' ? 'ACTIVE' : 'INACTIVE'
+        }
         }
         if(paramMSBuscador === ""){delete dataServices.paramMSBuscador};
         if(paramMsOperador === ""){delete dataServices.paramMsOperador};
