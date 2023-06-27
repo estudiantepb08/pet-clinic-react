@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { RowDetallePropietario } from './RowDetallePropietario';
 
-export const DetallePropietario = ({ dataPropietarios, handlerDeleteOwnerItem }) => {
+export const DetallePropietario = ({ dataPropietarios, handlerDeleteOwnerItem,ownerEdit,onActiveForm,activarForm }) => {
 
     const [busqueda, setBusqueda] = useState("");
 
@@ -54,6 +54,9 @@ export const DetallePropietario = ({ dataPropietarios, handlerDeleteOwnerItem })
                                 direccion={direccion}
                                 correo={correo}
                                 handlerDeleteOwnerItem ={id => handlerDeleteOwnerItem(id)}
+                                editOwnerItem={item => ownerEdit(item)}
+                                onActiveForm={active => onActiveForm(active)}
+                                activarForm={activarForm}
 
                             />))}
                         </tbody>

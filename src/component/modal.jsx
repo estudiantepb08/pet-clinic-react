@@ -7,7 +7,7 @@ import { getObjectEditVisit, getObjectVisit } from '../common/functions/dataVisi
 export const ModalComponent = ({ show, close, inputsModal,handleSave,dataEdit }) => {
     const { data, error, ok } = useFetch(`${process.env.REACT_APP_MS_BUSCADOR}/mascotas`);
     const { data:dataOwner, error:errorOwner, ok:okOwner  } = useFetch(`${process.env.REACT_APP_MS_BUSCADOR_PROPIETARIO}/propietarios`);
-    const { data:dataVeterinary, error:errorVeterinary, ok:okVeterinary  } = useFetch(`${process.env.REACT_APP_MS_VETERINARIO}`);
+    const { data:dataVeterinary, error:errorVeterinary, ok:okVeterinary  } = useFetch(`${process.env.REACT_APP_MS_VETERINARIO2}`);
     const {formValues,onInputChange,setFormState} = useForm({});
     const [pets, setPets] = useState();
     const [owners, setOwners] = useState();

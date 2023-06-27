@@ -1,6 +1,8 @@
 import React, { useEffect, useState} from 'react';
 import { FormVeterinario2 } from '../../../component/FormVeterinario2';
 import { DetalleVeterinario } from '../../../component/DetalleVeterinario';
+import { FilterVeterinary } from './FilterVeterinary';
+import { debounce } from 'lodash';
 
 export const VeterinarioVista = ({data}) => {
   /** Estados iniciales de la vista principal con la data basica */
@@ -23,12 +25,15 @@ export const VeterinarioVista = ({data}) => {
     if(action === "save"){setValuesForm(undefined)}
     setActivarForm(!activarForm);
   };
+  const addVeterinaries = (veterinariesArray) => {
+    console.log(veterinariesArray ,"array");
+    setItemsVeterinarios(veterinariesArray);
+  }
 
 
   /** Handler encargado de recibir la data del formulario y clonar la lista anterior y agregarle los nuevos registros */
 
   const handlerItemsVeterinarios = ({ primerNombre, segundoNombre, primerAPellido, segundoApellido, especialidad ,setItemsVeterinarios}) => {
-    console.log("SE LLENO ESTE HP");
     
     setItemsVeterinarios([...itemsVeterinarios, {
 
@@ -39,11 +44,34 @@ export const VeterinarioVista = ({data}) => {
       segundoApellido: segundoApellido,
       especialidad: especialidad
     }]);
+  } 
+
+  const search = debounce(async (filter) => {
+    try {
+      let resp;
+      if(!filter || filter === "" ){
+        const data = await fetch(`${process.env.REACT_APP_MS_VETERINARIO2}`);
+         resp = await data.json();
+      }else{
+        const data = await fetch(`${process.env.REACT_APP_MS_VETERINARIO2}/veterinario/todos?buscar=${filter}`);
+         resp = await data.json();
+    
+      }
+      setItemsVeterinarios(resp.data);
+    } catch (error) {
+      console.error('Error de búsqueda:', error);
+    }
+  }, 1000);
+  
+
+  const filterVeterinaries = (filter) => {
+    search(filter)
   }
 
   return (
     <>
     <section>
+      <FilterVeterinary handleFilter={filterVeterinaries}/>
       <div className='container'>
         <div className='card my-3'>
           <div className='card-header'>
@@ -52,7 +80,7 @@ export const VeterinarioVista = ({data}) => {
           <div className='card-body'>
             <div className='row my-4'>
               <div className='col'>
-              <DetalleVeterinario veterinarioData={data} activeForm={onActiveForm} stateForm={activarForm} addValuesFormState={setValuesForm} setVeterinarioData={setVeterinarioData} setItemsVeterinarios={setItemsVeterinarios} />
+              <DetalleVeterinario veterinarioData={itemsVeterinarios} activeForm={onActiveForm} stateForm={activarForm} addValuesFormState={setValuesForm} setVeterinarioData={setVeterinarioData} setItemsVeterinarios={setItemsVeterinarios} />
 
               </div>
             </div>
@@ -63,7 +91,7 @@ export const VeterinarioVista = ({data}) => {
       <section>
       <div className='col'>
                 <button className="btn btn-secondary"  onClick={() => onActiveForm("save")}>{!activarForm ? 'Crear veterinario' : 'Ocultar formulario'}</button>
-                {!activarForm ? '' : <FormVeterinario2 handler={(newVeterinario) => handlerItemsVeterinarios(newVeterinario)} valuesVeterinaryEdit={valuesForm} activeForm={onActiveForm} stateForm={activarForm} setItemsVeterinarios={setItemsVeterinarios}/>}
+                {!activarForm ? '' : <FormVeterinario2 handler={(newVeterinario) => handlerItemsVeterinarios(newVeterinario)} valuesVeterinaryEdit={valuesForm} activeForm={onActiveForm} stateForm={activarForm} handleSave={addVeterinaries}/>}
               </div>
       </section>
     </>

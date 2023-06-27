@@ -7,7 +7,7 @@ export const VeterinarioData = () => {
 
   return (
     <>
-      {ok && <VeterinarioVista data={data?.data} />}
+      { <VeterinarioVista data={data?.data} />}
     </>
   );
 };

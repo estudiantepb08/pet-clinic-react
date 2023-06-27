@@ -3,6 +3,7 @@ import { FormMascota } from '../component/FormMascota';
 import { DetalleMascota } from '../component/DetalleMascota';
 import { useMascotas, useTipoMascota, useOwners, deletePet, savePet } from '../services/dataMascotaService';
 import {estructuraList } from '../data/data-mascota';
+import { useFetch } from '../common/useFetch';
 
 export const MascotaVista = () => {
 
@@ -82,7 +83,7 @@ export const MascotaVista = () => {
                 
             <div className='row my-4'>
               <div className='col'>
-              <DetalleMascota mascotaData = { dataMascotas } handlerDeletePetItem={handlerDeletePetItem} />
+              <DetalleMascota mascotaData = { dataMascotas } handlerDeletePetItem={handlerDeletePetItem} tipoMascotas={tipoMascotas} setMascotas={setItemsMascotas} />
               </div>              
             </div>
           </div>

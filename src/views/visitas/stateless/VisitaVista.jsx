@@ -35,13 +35,30 @@ export const VisitaVista = ({ data, addMethod,error,spinner }) => {
   }
   if(error){
     return(
-
+      <>
+         <button
+          type="button"
+          onClick={() => openModal('save')}
+          className="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop"
+        >
+          Añadir una visita
+        </button>
     <Alert variant="danger" onClose={() => setShow(false)} dismissible>
     <Alert.Heading>No se encontraron resultados!!</Alert.Heading>
     <p>
     Intenta con otro parámetro de búsqueda.
     </p>
   </Alert>
+  <ModalComponent
+        show={showModal}
+        close={closeModal}
+        inputsModal={inputs}
+        handleSave={addMethod}
+        dataEdit={dataEdit}
+      />
+      </>
     )
 }
   return (

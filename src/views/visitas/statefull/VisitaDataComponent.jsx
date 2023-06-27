@@ -23,11 +23,11 @@ export const VisitData = () => {
         }else {
             dataServices = {
             paramMSBuscador,
-            status:paramMsOperador === 'ACTIVO' ? 'ACTIVE' : 'INACTIVE'
+            status:paramMsOperador === 'ACTIVO' ? 'ACTIVE' : paramMsOperador === 'INACTIVO' ? 'INACTIVE' : "" 
         }
         }
-        if(paramMSBuscador === ""){delete dataServices.paramMSBuscador};
-        if(paramMsOperador === ""){delete dataServices.paramMsOperador};
+        if(paramMSBuscador === "" || !paramMSBuscador){delete dataServices.paramMSBuscador};
+        if(paramMsOperador === "" || !paramMsOperador){delete dataServices.status};
         setFilter(dataServices);
         const options = {
             method:'POST',
@@ -38,7 +38,7 @@ export const VisitData = () => {
         };
             const resp = await fetch(`${process.env.REACT_APP_MS_OPERADOR}/search`,options);
             const dataFilter = await resp.json();
-            if(!dataFilter?.listData){
+            if(!dataFilter?.listData || dataFilter?.listData.length === 0){
                 setErrors({error:"No se encontraron resultados"});
                 setSpinner(false);
 

@@ -70,7 +70,7 @@ export const saveOwner = async(itemsPropietarios) => {
 
 export const updatePropietario = async(formPropietario) => {
 
-    const url = `http://localhost:8762/ms-buscador/v1/pet-clinic/propietarios/${peticion.body.datosPropietarios.id}`;    
+    const url = `http://localhost:8762/ms-buscador/v1/pet-clinic/propietarios/numero/${formPropietario.id}`;    
 
     const { id, primerNombre, segundoNombre, primerApellido, segundoApellido, } = formPropietario;
     const { telefono, direccion, correoElectronico } = formPropietario.contacto;
@@ -102,7 +102,7 @@ export const updatePropietario = async(formPropietario) => {
     const updateResponse = await fetch(url, peticion);
     const data = await updateResponse.json();
      
-    return data.messages
+    return { messages: data.messages} 
 };
 
 //CLIENTE REST PARA CONSUMIR EL API DE ELIMINAR PROPIETARIO

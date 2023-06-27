@@ -1,7 +1,7 @@
     import React, { useState } from 'react';
     import { deleteItem } from '../api/tasks.api';
     
-export const DetalleVeterinario = ({ veterinarioData,activeForm,stateForm,addValuesFormState }) => {
+export const DetalleVeterinario = ({ veterinarioData,activeForm,stateForm,addValuesFormState,setItemsVeterinarios }) => {
     console.log(veterinarioData);
     const [busqueda, setBusqueda] = useState('');
     const [activarForm, setActivarForm] = useState(false);
@@ -26,6 +26,11 @@ export const DetalleVeterinario = ({ veterinarioData,activeForm,stateForm,addVal
     const actiondelete = async id => {
         try {
         await deleteItem(id);
+        const resp = await fetch(process.env.REACT_APP_MS_VETERINARIO2)
+        const data = await resp.json();
+        if(data.messages === 'Ok'){
+            setItemsVeterinarios(data.data);
+        }
         console.log('Deleting item.....');
         } catch (error) {
         console.log(error);

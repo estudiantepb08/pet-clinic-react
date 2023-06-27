@@ -16,7 +16,7 @@ export const Menu = () => {
                                 <NavLink className={'nav-link'} to={'/'}>Home</NavLink>
                             </li>
                             <li className="nav-item">
-                            <NavLink className={'nav-link'} to={'/propietario'}>Owner</NavLink>                                
+                            <NavLink className={'nav-link'} to={'/propietario'}>Propietario</NavLink>                                
                             </li>
                             <li className="nav-item">
                             <NavLink className={'nav-link'} to={'/mascota'}>Mascota</NavLink>
